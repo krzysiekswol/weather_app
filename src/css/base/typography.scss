@@ -3,6 +3,12 @@
 $font-family-std: "Roboto", sans-serif;
 $font-family-metar: "Roboto Mono", monospace;
 
+// Headings
 h3 {
   font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: $font-family-std;
 }
