@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  background-color: #d2f7f7;
+  background-image: url("/src/assets/img/thunderstorm.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+#wxstandard {
+  background-color: transparent;
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  color: #fff;
+  left: calc(50% - 100px);
+  top: 30%;
+  font-family: $font-family-std;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 3%;
+  // flex =======
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wxpilot {
+  @extend #wxstandard;
+  top: 60%;
+}

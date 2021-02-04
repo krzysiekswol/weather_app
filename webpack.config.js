@@ -12,7 +12,7 @@ const PrettierPlugin = require("prettier-webpack-plugin");
 
 module.exports = {
   entry: {
-    "index": "./src/index.js",
+     "index": "./src/index.js",
   }, 
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -26,12 +26,18 @@ module.exports = {
   plugins: [
         new HtmlWebpackPlugin({
           template: "./src/index.html"}),
-          // new HtmlWebpackPlugin({
-          //   template: './src/kontakt.html',
-          //   inject: true,
-          //   chunks: ['index'],
-          //   filename: 'kontakt.html'
-          // }),
+          new HtmlWebpackPlugin({
+            template: './src/appwx.html',
+            inject: true,
+            chunks: ['index'],
+            filename: 'appwx.html'
+          }),
+          new HtmlWebpackPlugin({
+            template: './src/appmetar.html',
+            inject: true,
+            chunks: ['index'],
+            filename: 'appmetar.html'
+          }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
           filename: "[name].[hash].css"
