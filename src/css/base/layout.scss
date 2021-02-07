@@ -70,13 +70,15 @@
   align-items: center;
   flex-wrap: wrap;
   .box {
-    background-color: transparent;
+    background-color: $skyColor;
     border: 2px solid rgba(255, 255, 255, 0.5);
     flex-basis: 30%;
     height: 400px;
     .wxdesc {
       position: relative;
-      top: 20%;
+      top: 45%;
+      width: 80%;
+      margin: auto;
       text-align: center;
       font-family: $font-family-std;
       font-size: 1rem;
@@ -87,5 +89,30 @@
       margin-top: 1rem;
       color: rgb(255, 255, 255);
     }
+    .iconswx {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      top: -10%;
+      left: calc(50% - 50px);
+      text-align: center;
+      // background-color: $skyColor;
+      img {
+        z-index: 3;
+      }
+    }
   }
+}
+#wxDescriptionKrk,
+#wxDescriptionKtw,
+#wxDescriptionWaw,
+#wxDescriptionPoz,
+#wxDescriptionWro,
+#wxDescriptionGdn {
+  position: relative;
+  top: 35%;
+  text-align: center;
+  font-family: $font-family-std;
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
 }
