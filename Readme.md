@@ -9,7 +9,7 @@ Simple  weather web application made to learn API and JS. Aplication get weather
 * RWD;
 
 ## Status
-Main website and weather website is finished inn 80%. Still METAR website is under construction and the project is also not responsive for now.
+Main website and weather website is finished in 80%. Still METAR website is under construction and the project is also not responsive for now.
 
 
 
