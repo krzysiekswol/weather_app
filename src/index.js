@@ -122,3 +122,11 @@ const wxWro = fetch(
   });
 
 //================================================METARs===================================
+fetch(
+  "https://avwx.rest/api/metar/EPKK?airport=true&format=json&token=UgyKROYz5om5iKie5mnayjwUSqew4yrQ6RO40JMvqT8"
+)
+  .then((resp) => resp.json())
+  .then(function (data) {
+    console.log(data);
+    document.getElementById("metar").innerHTML = `${data.raw}`;
+  });
