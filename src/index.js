@@ -1,132 +1,32 @@
 import style from "./css/index.scss";
 
-// KRK================================
-const wxKrk = fetch(
-  "http://api.openweathermap.org/data/2.5/weather?q=Krakow&appid=af4cddf8ba6d2ac99ba304abc62d2cc7&lang=pl"
-)
-  .then((resp) => resp.json())
-  .then(function (data) {
-    let imageKrk = document.createElement("img");
-    imageKrk.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-    document.getElementById(
-      "showWxKrk"
-    ).innerHTML = `Aktualna temperatura wynosi : ${(
-      data.main.temp - 273.15
-    ).toFixed(1)} &#x2103, a odczuwalna to ${(
-      data.main.feels_like - 273.15
-    ).toFixed(1)} &#x2103`;
-    document.getElementById("iconKrk").appendChild(imageKrk);
-    document.getElementById(
-      "wxDescriptionKrk"
-    ).innerHTML = `${data.weather[0].description}`;
-  });
-// KTW====================================
-const wxKtw = fetch(
-  "http://api.openweathermap.org/data/2.5/weather?q=Katowice&appid=af4cddf8ba6d2ac99ba304abc62d2cc7&lang=pl"
-)
-  .then((resp) => resp.json())
-  .then(function (data) {
-    let imageKtw = document.createElement("img");
-    imageKtw.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-    document.getElementById(
-      "showWxKtw"
-    ).innerHTML = `Aktualna temperatura wynosi : ${(
-      data.main.temp - 273.15
-    ).toFixed(1)} &#x2103, a odczuwalna to ${(
-      data.main.feels_like - 273.15
-    ).toFixed(1)} &#x2103`;
-    document.getElementById("iconKtw").appendChild(imageKtw);
-    document.getElementById(
-      "wxDescriptionKtw"
-    ).innerHTML = `${data.weather[0].description}`;
-  });
-// WAW=======================================
-const wxWaw = fetch(
-  "http://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=af4cddf8ba6d2ac99ba304abc62d2cc7&lang=pl"
-)
-  .then((resp) => resp.json())
-  .then(function (data) {
-    let imageWaw = document.createElement("img");
-    imageWaw.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-    document.getElementById(
-      "showWxWaw"
-    ).innerHTML = `Aktualna temperatura wynosi : ${(
-      data.main.temp - 273.15
-    ).toFixed(1)} &#x2103, a odczuwalna to ${(
-      data.main.feels_like - 273.15
-    ).toFixed(1)} &#x2103`;
-    document.getElementById("iconWaw").appendChild(imageWaw);
-    document.getElementById(
-      "wxDescriptionWaw"
-    ).innerHTML = `${data.weather[0].description}`;
-  });
-// POZ=======================================
-const wxPoz = fetch(
-  "http://api.openweathermap.org/data/2.5/weather?q=Poznan&appid=af4cddf8ba6d2ac99ba304abc62d2cc7&lang=pl"
-)
-  .then((resp) => resp.json())
-  .then(function (data) {
-    let imagePoz = document.createElement("img");
-    imagePoz.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-    document.getElementById(
-      "showWxPoz"
-    ).innerHTML = `Aktualna temperatura wynosi : ${(
-      data.main.temp - 273.15
-    ).toFixed(1)} &#x2103, a odczuwalna to ${(
-      data.main.feels_like - 273.15
-    ).toFixed(1)} &#x2103`;
-    document.getElementById("iconPoz").appendChild(imagePoz);
-    document.getElementById(
-      "wxDescriptionPoz"
-    ).innerHTML = `${data.weather[0].description}`;
-  });
-// GDN============================================
-const wxGdn = fetch(
-  "http://api.openweathermap.org/data/2.5/weather?q=Gdansk&appid=af4cddf8ba6d2ac99ba304abc62d2cc7&lang=pl"
-)
-  .then((resp) => resp.json())
-  .then(function (data) {
-    let imageGdn = document.createElement("img");
-    imageGdn.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-    document.getElementById(
-      "showWxGdn"
-    ).innerHTML = `Aktualna temperatura wynosi : ${(
-      data.main.temp - 273.15
-    ).toFixed(1)} &#x2103, a odczuwalna to ${(
-      data.main.feels_like - 273.15
-    ).toFixed(1)} &#x2103`;
-    document.getElementById("iconGdn").appendChild(imageGdn);
-    document.getElementById(
-      "wxDescriptionGdn"
-    ).innerHTML = `${data.weather[0].description}`;
-  });
-// WRO============================================
-const wxWro = fetch(
-  "http://api.openweathermap.org/data/2.5/weather?q=Wroclaw&appid=af4cddf8ba6d2ac99ba304abc62d2cc7&lang=pl"
-)
-  .then((resp) => resp.json())
-  .then(function (data) {
-    let imageWro = document.createElement("img");
-    imageWro.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-    document.getElementById(
-      "showWxWro"
-    ).innerHTML = `Aktualna temperatura wynosi : ${(
-      data.main.temp - 273.15
-    ).toFixed(1)} &#x2103, a odczuwalna to ${(
-      data.main.feels_like - 273.15
-    ).toFixed(1)} &#x2103`;
-    document.getElementById("iconWro").appendChild(imageWro);
-    document.getElementById(
-      "wxDescriptionWro"
-    ).innerHTML = `${data.weather[0].description}`;
-  });
+class Weather {
+  showWeather(city, code) {
+    fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=af4cddf8ba6d2ac99ba304abc62d2cc7&lang=pl`
+    )
+      .then((resp) => resp.json())
+      .then(function (data) {
+        let image = document.createElement("img");
+        image.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+        document.getElementById(
+          `showWx${code}`
+        ).innerHTML = `Aktualna temperatura wynosi : ${(
+          data.main.temp - 273.15
+        ).toFixed(1)} &#x2103, a odczuwalna to ${(
+          data.main.feels_like - 273.15
+        ).toFixed(1)} &#x2103`;
+        document.getElementById(`icon${code}`).appendChild(image);
+        document.getElementById(
+          `wxDescription${code}`
+        ).innerHTML = `${data.weather[0].description}`;
+      });
+  }
+}
 
-//================================================METARs===================================
-fetch(
-  "https://avwx.rest/api/metar/EPKK?airport=true&format=json&token=UgyKROYz5om5iKie5mnayjwUSqew4yrQ6RO40JMvqT8"
-)
-  .then((resp) => resp.json())
-  .then(function (data) {
-    console.log(data);
-    document.getElementById("metar").innerHTML = `${data.raw}`;
-  });
+const krakow = new Weather().showWeather("Krakow", "Krk");
+const katowice = new Weather().showWeather("Katowice", "Ktw");
+const warszawa = new Weather().showWeather("Warszawa", "Waw");
+const poznan = new Weather().showWeather("Poznan", "Poz");
+const gdansk = new Weather().showWeather("Gdansk", "Gdn");
+const wroclaw = new Weather().showWeather("Wroclaw", "Wro");
