@@ -97,3 +97,13 @@ const warszawa = new Weather("Warszawa", "Waw").showWeather();
 const poznan = new Weather("Poznan", "Poz").showWeather();
 const gdansk = new Weather("Gdansk", "Gdn").showWeather();
 const wroclaw = new Weather("Wroclaw", "Wro").showWeather();
+
+//================================================METARs===================================
+fetch(
+  `https://avwx.rest/api/metar/EPKK?airport=true&format=json&token=${process.env.METAR_API_KEY}`
+)
+  .then((resp) => resp.json())
+  .then(function (data) {
+    console.log(data);
+    document.getElementById("metar").innerHTML = `${data.raw}`;
+  });
