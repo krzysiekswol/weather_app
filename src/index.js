@@ -39,7 +39,7 @@ class Weather {
 //   showWeather() {
 //     const that = this;
 //     fetch(
-//       `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=af4cddf8ba6d2ac99ba304abc62d2cc7&lang=pl`
+//       `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${process.env.WEATHER_API_KEY}&lang=en`
 //     )
 //       .then((resp) => resp.json())
 //       .then(function (data) {
@@ -68,7 +68,7 @@ class Weather {
 //   }
 //   showWeather() {
 //     fetch(
-//       `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=af4cddf8ba6d2ac99ba304abc62d2cc7&lang=pl`
+//       `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${process.env.WEATHER_API_KEY}&lang=en`
 //     )
 //       .then((resp) => resp.json())
 //       .then(
