@@ -8,6 +8,7 @@ const autoprefixer = require("autoprefixer");
 const webpack = require("webpack");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const PrettierPlugin = require("prettier-webpack-plugin");
+const DotenvWebpackPlugin = require("dotenv-webpack");
 
 
 module.exports = {
@@ -64,12 +65,14 @@ module.exports = {
           to: './dest/assets'
         }]),
         new PrettierPlugin(),
+        new DotenvWebpackPlugin(),
   ],
   
-  
+  node: {
+    fs: "empty"
+ },
   module: {
-    rules: [
-      
+    rules: [ 
       {
         test: /\.scss$/,
         use: [//"style-loader",
