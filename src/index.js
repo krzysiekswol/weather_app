@@ -115,6 +115,33 @@ class Metar {
           document.getElementById(
             `flightRules_${this.icaoCode}`
           ).innerHTML = `${data.flight_rules}`;
+          switch (`${data.flight_rules}`) {
+            case `IFR`:
+              document.getElementById(
+                `flightRules_${this.icaoCode}`
+              ).style.color = "darkblue";
+              break;
+            case `LIFR`:
+              document.getElementById(
+                `flightRules_${this.icaoCode}`
+              ).style.color = "red";
+              break;
+            case `VFR`:
+              document.getElementById(
+                `flightRules_${this.icaoCode}`
+              ).style.color = "#00D100";
+              break;
+            case `MVFR`:
+              document.getElementById(
+                `flightRules_${this.icaoCode}`
+              ).style.color = "orange";
+              break;
+            default:
+              document.getElementById(
+                `flightRules_${this.icaoCode}`
+              ).style.color = "white";
+              break;
+          }
         }.bind(this)
       );
   }

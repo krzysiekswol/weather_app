@@ -5,7 +5,7 @@
 }
 
 .wrapper {
-  background-image: url("/src/assets/img/thunderstormlg.jpg");
+  background-image: url("/src/assets/img/sunset-clouds1920.jpg");
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
@@ -70,10 +70,14 @@
   align-items: center;
   flex-wrap: wrap;
   .box {
+    position: relative;
     background-color: $skyColor;
     border: 2px solid rgba(255, 255, 255, 0.5);
     flex-basis: 30%;
     height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+      rgba(0, 0, 0, 0.09) 0px 32px 16px;
     .wxdesc {
       position: relative;
       top: 45%;
@@ -126,6 +130,8 @@
   font-size: 1.2rem;
 }
 .metarFR {
-  position: relative;
-  top: 30%;
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  left: calc(50% - 50px);
 }
