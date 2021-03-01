@@ -16,8 +16,8 @@ module.exports = {
      "index": "./src/index.js",
   }, 
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].bundle.js",
+    path: path.resolve(__dirname, "/public"),
+    filename: "[name].bundle.js",
   },
   devServer: {
     // contentBase: path.join(__dirname, "dist"),
@@ -39,9 +39,9 @@ module.exports = {
             chunks: ['index'],
             filename: 'appmetar.html'
           }),
-        new CleanWebpackPlugin(),
+        // new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-          filename: "[name].[hash].css"
+          filename: "[name].css"
         }),
        new OptimizeCssAssetsPlugin({
           assetNameRegExp: /\.css$/
@@ -62,7 +62,7 @@ module.exports = {
         }),
          new CopyWebpackPlugin([{
           from: './src/assets',
-          to: './dest/assets'
+          to: './assets'
         }]),
         new PrettierPlugin(),
         new DotenvWebpackPlugin(),
