@@ -3,7 +3,7 @@ const port = process.env.PORT || 5000;
 const server = express();
 const path = require('path');
 
-server.use('/', express.static(path.join(__dirname, '/public')));
+server.use('/', express.static(path.join(__dirname, 'public')));
 server.use('/assets', express.static(path.join(__dirname, '/public/assets')));
 
 server.get('/', function (req, res) {
