@@ -9,7 +9,7 @@ class Weather {
   }
   showWeather() {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${process.env.WEATHER_API_KEY}&lang=en`
+      `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${process.env.API_KEY}&lang=en`
     )
       .then((resp) => resp.json())
       .then((data) => {
@@ -39,7 +39,7 @@ class Weather {
 //   showWeather() {
 //     const that = this;
 //     fetch(
-//       `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${process.env.WEATHER_API_KEY}&lang=en`
+//       `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${process.env.API_KEY}&lang=en`
 //     )
 //       .then((resp) => resp.json())
 //       .then(function (data) {
@@ -68,7 +68,7 @@ class Weather {
 //   }
 //   showWeather() {
 //     fetch(
-//       `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${process.env.WEATHER_API_KEY}&lang=en`
+//       `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${process.env.API_KEY}&lang=en`
 //     )
 //       .then((resp) => resp.json())
 //       .then(
@@ -106,11 +106,12 @@ class Metar {
   }
   showMetars() {
     fetch(
-      `https://avwx.rest/api/metar/${this.icaoCode}?airport=true&format=json&token=${process.env.WEATHER_API_KEY}`
+      `https://avwx.rest/api/metar/${this.icaoCode}?airport=true&format=json&token=${process.env.METAR_API_KEY}`
     )
       .then((resp) => resp.json())
       .then(
         function (data) {
+          console.log(process.env.METAR_API_KEY);
           document.getElementById(`${this.icaoCode}`).innerHTML = `${data.raw}`;
           document.getElementById(
             `flightRules_${this.icaoCode}`
