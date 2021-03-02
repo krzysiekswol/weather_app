@@ -106,7 +106,7 @@ class Metar {
   }
   showMetars() {
     fetch(
-      `https://avwx.rest/api/metar/${this.icaoCode}?airport=true&format=json&token=${process.env.METAR_API_KEY}`
+      `https://avwx.rest/api/metar/${this.icaoCode}?airport=true&format=json&token=${process.env.WEATHER_API_KEY}`
     )
       .then((resp) => resp.json())
       .then(
